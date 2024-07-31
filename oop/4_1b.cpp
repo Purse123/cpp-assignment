@@ -12,7 +12,7 @@ public:
     return (a);
   }
 };
-class D: public B {
+class D: private B {
   int c;
 
 public:

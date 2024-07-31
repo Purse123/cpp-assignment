@@ -4,9 +4,5 @@
 # Except for .gitignore itself
 !.gitignore
 
-# Unignore all directories to keep the directory structure
-!*/
-
 # Include only .cpp files
 !*.cpp
-
