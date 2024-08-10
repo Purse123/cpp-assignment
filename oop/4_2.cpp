@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ostream>
 class student {
 protected:
   int roll_number;

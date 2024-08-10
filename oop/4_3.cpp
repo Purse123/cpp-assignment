@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -38,7 +37,7 @@ void Book::getData() {
 void VoiceRecord::getData() {
   std::cout << "Enter name of speaker: ";
   std::cin >> Speaker;
-  std::cout << "Enter record duration: ";
+  std::cout << "Enter record duration (in hr): ";
   std::cin >> duration;
   std::cout << "Enter record publish date(yyyy-mm-dd): " << std::endl;
   std::cin >> d_year;
