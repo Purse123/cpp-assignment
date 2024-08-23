@@ -1,64 +1,28 @@
 #include <iostream>
-
-// Base class for student details
-class student {
-protected:
-  int roll_no;
-
+using namespace std;
+// Parent class Alpha
+class Alpha {
 public:
-  void get_roll_no(int r) { roll_no = r; }
-  void put_roll_no() { std::cout << "Roll No: " << roll_no << std::endl; }
+  int add(int a, int b) { return a + b; }
 };
-
-// Base class for sports details
-class sports {
-protected:
-  float score;
-
+// Parent class Beta
+class Beta {
 public:
-  void get_score(float s) { score = s; }
-  void put_score() { std::cout << "Sports Score: " << score << std::endl; }
+  int multiply(int a, int b) { return a * b; }
 };
-
-// Derived class test inheriting from student
-class test : public student {
-protected:
-  float math_marks;
-  float physics_marks;
-
+// Child class Gamma inheriting from Alpha and Beta
+class Gamma : public Alpha, public Beta {
 public:
-  void get_marks(float m, float p) {
-    math_marks = m;
-    physics_marks = p;
-  }
-  void put_marks() {
-    std::cout << "Math Marks: " << math_marks << std::endl
-              << "Physics Marks: " << physics_marks << std::endl;
+  int calculate(int a, int b) {
+    int sum = add(a, b);          // Using add() from Alpha
+    int product = multiply(a, b); // Using multiply() from Beta
+    return sum + product;
   }
 };
-
-// Derived class result inheriting from test and sports
-class result : public test, public sports {
-  float total;
-
-public:
-  void display() {
-    total = math_marks + physics_marks + score;
-    put_roll_no();
-    put_marks();
-    put_score();
-    std::cout << "Total Score: " << total << std::endl;
-  }
-};
-
 int main() {
-  result student_result;
-
-  student_result.get_roll_no(101);
-  student_result.get_marks(85.5, 90.0);
-  student_result.get_score(88.0);
-
-  student_result.display();
-
-  return 0;
+  Gamma obj;
+  int num1 = 5, num2 = 3;
+  cout << "Addition: " << obj.add(num1, num2) << endl;
+  cout << "Multiplication: " << obj.multiply(num1, num2) << endl;
+  cout << "Calculation (Sum + Product): " << obj.calculate(num1, num2) << endl;
 }
